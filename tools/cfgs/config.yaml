@@ -1,0 +1,44 @@
+# Units:
+# distance [m], speed [m/s], acceleration [m/s^2]
+
+CARLA:
+  DT: 0.1                                                       # Set to -1 for variable time-step (real-world simulation)
+  LANE_WIDTH: 3.5
+  MAX_S: 3000                                                   # [int] max frenet s value available in global route
+
+POLICY:
+  NAME: DDPG                                                    # DDPG/TRPO/PPO2/A2C
+  NET: CNN                                                      # MLP/CNN/LSTM - DDPG does not have LSTM policy
+  CNN_EXTRACTOR: sequence_1d_cnn_ego_bypass_tc                  # nature_cnn/sequence_1d_cnn/sequence_1d_cnn_ego_bypass_tc
+  ACTION_NOISE: 0.5                                             # DDPG only
+  PARAM_NOISE_STD: 0.0                                          # DDPG only
+
+GYM_ENV:
+  FIXED_REPRESENTATION: True                                    # actors's states have fixed positions in the observation tensor
+  TRACK_LENGTH: 750                                             # [int] distance to travel on s axis before terminating the episode. Must be less than CARLA.MAX_S - 50
+  TARGET_SPEED: 13.89                                           # Ego's target speed
+  MAX_SPEED: 25
+  MAX_ACC: 6.878                                                # equivalent to 24.7608 km/h.s for Tesla model 3
+  LOOK_BACK: 30                                                 # [int] Steps to look back at last path for observation sequence vector
+  TIME_STEP: 4                                                  # [int] Steps to look back at last path for observation sequence vector (TIME_STEP + 1)
+  LOOP_BREAK: 30                                                # NOT USED [int] steps to break path following while loop  - must be greater than LOOK_BACK
+  DISTN_FRM_VHCL_AHD: 200                                       # Effective distance to keep from vehicle ahead for IDM
+
+RL:
+  W_SPEED: 5                                                    # Speed Error Resolution
+  W_R_SPEED: 10                                                 # Speed Reward Magnitude (w*r_speed)
+  MIN_SPEED_GAIN: 0.07                                          # Min Speed Gain Percentage for meaningful lane change reward
+  MIN_SPEED_LOSS: 0.0                                           # Min Speed Loss Percentage for unnecessary lane change penalty
+  LANE_CHANGE_PENALTY: 0.2                                      # Unnecesary Lane Change Penalty
+  LANE_CHANGE_REWARD: 2                                         # Meaningful Lane Change Reward (w*speed_reward)
+  OFF_THE_ROAD: -10                                             # Off-the-road attempt penalty
+  COLLISION: -10                                                # Collison penalty
+
+LOCAL_PLANNER:
+  MIN_SPEED: 13.89 # 5.56                                       # Allowed min speed for ego vehicle; RL's -1 action maps to this value
+  MAX_SPEED: 15.28                                              # Allowed max speed for ego vehicle; RL's 1 action maps to this value
+
+TRAFFIC_MANAGER:
+  N_SPAWN_CARS: 15                                              # number of cars spawned at each episode
+  MIN_SPEED: 8.33                                               # Min speed for actors in random traffic
+  MAX_SPEED: 11.11                                              # Max speed for actors in random traffic

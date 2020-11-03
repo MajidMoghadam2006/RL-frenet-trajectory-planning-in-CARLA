@@ -1,0 +1,15 @@
+tensorflow==1.14
+future
+numpy
+pygame
+pandas
+mpi4py
+gitpython
+gym
+scipy
+joblib
+cloudpickle>=0.5.5
+opencv-python
+matplotlib
+easydict
+pyyaml

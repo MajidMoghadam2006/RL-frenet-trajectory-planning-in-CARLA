@@ -1,0 +1,9 @@
+Git commit id: ec844259b8f3220f488b5834fa368668b1ee8bb2
+
+Program arguments:
+
+Namespace(agent_id=237, carla_host='127.0.0.1', carla_port=5000, carla_res='1280x720', cfg_file='tools/cfgs/config_ex1207.yaml', env='CarlaGymEnv-v5522', log_interval=100, log_path=None, num_timesteps=10000000, play_mode=0, save_path=None, test=False, test_last=False, test_model='', tm_port=5004, verbosity=0)
+
+Configuration file:
+
+{'ROOT_DIR': PosixPath('/carla'), 'LOCAL_RANK': 0, 'CARLA': {'DT': 0.1, 'LANE_WIDTH': 3.5, 'MAX_S': 3000}, 'POLICY': {'NAME': 'DDPG', 'NET': 'CNN', 'CNN_EXTRACTOR': 'sequence_1d_cnn_ego_bypass_tc', 'ACTION_NOISE': 0.5, 'PARAM_NOISE_STD': 0.0}, 'GYM_ENV': {'FIXED_REPRESENTATION': True, 'TRACK_LENGTH': 500, 'TARGET_SPEED': 13.89, 'MAX_SPEED': 25, 'MAX_ACC': 6.878, 'LOOK_BACK': 30, 'TIME_STEP': 4, 'LOOP_BREAK': 50, 'DISTN_FRM_VHCL_AHD': 200}, 'RL': {'W_SPEED': 5, 'W_R_SPEED': 10, 'MIN_SPEED_GAIN': 0.07, 'MIN_SPEED_LOSS': 0.0, 'LANE_CHANGE_PENALTY': 0.2, 'LANE_CHANGE_REWARD': 2, 'OFF_THE_ROAD': -10, 'COLLISION': -10}, 'LOCAL_PLANNER': {'MIN_SPEED': 13.89, 'MAX_SPEED': 15.28}, 'TRAFFIC_MANAGER': {'N_SPAWN_CARS': 12, 'MIN_SPEED': 8.33, 'MAX_SPEED': 11.11}, 'TAG': 'config_ex1207', 'EXP_GROUP_PATH': 'cfgs'}
