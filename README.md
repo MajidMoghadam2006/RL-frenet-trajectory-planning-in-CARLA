@@ -70,3 +70,11 @@ Initilize the best recorded agent and associated config file given the agent_id.
 - Env and RL Config File: tools/cfgs/config.yaml
 - Gym Environment: carla_gym/envs/ # Gym environment interface for CARLA, To manipulate observation, action, reward etc.
 - Modules: tools/modules.py # Pretty much wraps everything
+
+# To cite this repository in publications:
+```@article{moghadam2020end,
+  title={An End-to-end Deep Reinforcement Learning Approach for the Long-term Short-term Planning on the Frenet Space},
+  author={Moghadam, Majid and Alizadeh, Ali and Tekin, Engin and Elkaim, Gabriel Hugh},
+  journal={arXiv preprint arXiv:2011.13098},
+  year={2020}
+}```
